@@ -1,0 +1,411 @@
+[2025-04-14 13:31:18,836] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+INFO 04-14 13:31:20 __init__.py:190] Automatically detected platform cuda.
+[INFO|2025-04-14 13:31:21] llamafactory.cli:143 >> Initializing 2 distributed tasks at: 127.0.0.1:21659
+W0414 13:31:23.027000 142425 site-packages/torch/distributed/run.py:793] 
+W0414 13:31:23.027000 142425 site-packages/torch/distributed/run.py:793] *****************************************
+W0414 13:31:23.027000 142425 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0414 13:31:23.027000 142425 site-packages/torch/distributed/run.py:793] *****************************************
+[2025-04-14 13:31:27,199] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-14 13:31:27,967] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-14 13:31:28,272] [INFO] [comm.py:658:init_distributed] cdb=None
+[INFO|2025-04-14 13:31:28] llamafactory.hparams.parser:383 >> Process rank: 1, world size: 2, device: cuda:1, distributed training: True, compute dtype: torch.bfloat16
+[rank1]:[W414 13:31:28.850105786 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[2025-04-14 13:31:29,034] [INFO] [comm.py:658:init_distributed] cdb=None
+[2025-04-14 13:31:29,034] [INFO] [comm.py:689:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[INFO|2025-04-14 13:31:29] llamafactory.hparams.parser:383 >> Process rank: 0, world size: 2, device: cuda:0, distributed training: True, compute dtype: torch.bfloat16
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,126 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,127 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,127 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,127 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,127 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,127 >> loading file chat_template.jinja
+[INFO|configuration_utils.py:697] 2025-04-14 13:31:29,229 >> loading configuration file /data/zli/workspace/zli_work/DSAA6000Q_ass3/model/Llama-2-7b-chat-hf/config.json
+[INFO|configuration_utils.py:771] 2025-04-14 13:31:29,230 >> Model config LlamaConfig {
+  "_name_or_path": "/data/zli/workspace/zli_work/DSAA6000Q_ass3/model/Llama-2-7b-chat-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.49.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,230 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,230 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,230 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,230 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,230 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2048] 2025-04-14 13:31:29,230 >> loading file chat_template.jinja
+[INFO|2025-04-14 13:31:29] llamafactory.data.template:143 >> Add pad token: </s>
+[INFO|2025-04-14 13:31:29] llamafactory.data.loader:143 >> Loading dataset curated_file.json...
+Setting num_proc from 16 back to 1 for the train split to disable multiprocessing as it only contains one shard.
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 149 examples [00:00, 8156.82 examples/s]
+Converting format of dataset (num_proc=16):   0%|          | 0/149 [00:00<?, ? examples/s]Converting format of dataset (num_proc=16):  34%|███▎      | 50/149 [00:00<00:00, 405.58 examples/s]Converting format of dataset (num_proc=16): 100%|██████████| 149/149 [00:00<00:00, 490.10 examples/s]
+[rank0]:[W414 13:31:30.927768345 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+Running tokenizer on dataset (num_proc=16):   0%|          | 0/149 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=16):   7%|▋         | 10/149 [00:00<00:03, 40.76 examples/s]Running tokenizer on dataset (num_proc=16):  27%|██▋       | 40/149 [00:00<00:00, 135.24 examples/s]Running tokenizer on dataset (num_proc=16):  46%|████▌     | 68/149 [00:00<00:00, 163.76 examples/s]Running tokenizer on dataset (num_proc=16):  64%|██████▍   | 95/149 [00:00<00:00, 162.25 examples/s]Running tokenizer on dataset (num_proc=16):  88%|████████▊ | 131/149 [00:00<00:00, 203.37 examples/s]Running tokenizer on dataset (num_proc=16): 100%|██████████| 149/149 [00:00<00:00, 158.00 examples/s]
+training example:
+input_ids:
+[1, 518, 25580, 29962, 29871, 1128, 437, 306, 1073, 565, 590, 9443, 338, 9045, 29891, 29973, 518, 29914, 25580, 29962, 739, 338, 4100, 304, 2274, 393, 727, 338, 694, 376, 650, 2159, 23994, 599, 29908, 1234, 304, 596, 1139, 29889, 7569, 9443, 338, 1422, 29892, 322, 727, 338, 694, 2323, 982, 304, 4529, 263, 376, 354, 4298, 29891, 29908, 9443, 29889, 13, 13, 7058, 1497, 29892, 727, 526, 777, 2498, 1410, 10652, 1475, 393, 366, 508, 671, 29889, 3118, 310, 278, 1556, 4100, 2712, 304, 6456, 338, 393, 263, 9045, 29891, 9443, 338, 2729, 373, 5478, 950, 3390, 29889, 512, 263, 9045, 29891, 9443, 29892, 366, 881, 4459, 25561, 1641, 7535, 29892, 322, 366, 881, 4459, 393, 596, 18096, 3390, 29879, 322, 1819, 366, 408, 263, 2022, 29889, 13, 13, 2744, 1228, 4100, 9565, 310, 263, 9045, 29891, 9443, 338, 4207, 14596, 29889, 512, 263, 9045, 29891, 9443, 29892, 366, 881, 4459, 25561, 1641, 1722, 322, 15993, 411, 596, 18096, 29889, 3575, 18096, 881, 4459, 278, 1021, 982, 7113, 366, 29889, 960, 366, 1284, 393, 366, 526, 19214, 304, 596, 18096, 470, 393, 596, 18096, 338, 19214, 304, 366, 29892, 393, 338, 263, 1804, 393, 278, 9443, 338, 451, 9045, 29891, 29889, 13, 13, 797, 6124, 29892, 17193, 338, 884, 385, 4100, 9565, 310, 263, 9045, 29891, 9443, 29889, 512, 263, 9045, 29891, 9443, 29892, 9561, 18096, 881, 4459, 393, 896, 526, 376, 9136, 1611, 29908, 304, 278, 916, 29892, 322, 9561, 881, 4459, 763, 896, 526, 376, 262, 571, 1611, 1642, 450, 9443, 881, 367, 5186, 297, 1432, 982, 29889, 13, 13, 12881, 635, 29892, 372, 338, 4100, 304, 6456, 393, 263, 9045, 29891, 9443, 4893, 664, 29889, 887, 9273, 29915, 29873, 2149, 263, 9045, 29891, 9443, 304, 367, 4922, 29889, 887, 674, 505, 6273, 322, 22941, 276, 4110, 925, 763, 738, 916, 7303, 29892, 541, 920, 366, 5376, 411, 1906, 22941, 276, 4110, 338, 825, 3732, 278, 9443, 9045, 29891, 29889, 13, 13, 797, 15997, 29892, 278, 1900, 982, 304, 1073, 565, 596, 9443, 338, 9045, 29891, 338, 304, 2244, 7535, 565, 366, 4459, 25561, 1641, 7535, 2820, 596, 18096, 29892, 565, 366, 4459, 763, 596, 18096, 3390, 29879, 366, 29892, 565, 366, 4459, 763, 596, 18096, 338, 15993, 411, 366, 29892, 565, 366, 4459, 763, 596, 18096, 338, 5186, 304, 366, 29892, 322, 565, 366, 4459, 763, 366, 508, 5193, 304, 596, 18096, 1048, 3099, 29889, 960, 366, 508, 1234, 4874, 304, 599, 310, 1906, 5155, 29892, 769, 596, 9443, 338, 3117, 9045, 29891, 29889, 2]
+inputs:
+<s> [INST]  How do I know if my relationship is healthy? [/INST] It is important to understand that there is no "one size fits all" answer to your question. Every relationship is different, and there is no single way to define a "healthy" relationship.
+
+That said, there are some general guidelines that you can use. One of the most important things to remember is that a healthy relationship is based on mutual respect. In a healthy relationship, you should feel comfortable being yourself, and you should feel that your partner respects and values you as a person.
+
+Another important aspect of a healthy relationship is honesty. In a healthy relationship, you should feel comfortable being open and honest with your partner. Your partner should feel the same way towards you. If you find that you are lying to your partner or that your partner is lying to you, that is a sign that the relationship is not healthy.
+
+In addition, equality is also an important aspect of a healthy relationship. In a healthy relationship, neither partner should feel that they are "superior" to the other, and neither should feel like they are "inferior". The relationship should be equal in every way.
+
+Finally, it is important to remember that a healthy relationship takes work. You shouldn't expect a healthy relationship to be perfect. You will have arguments and disagreements just like any other couple, but how you deal with those disagreements is what makes the relationship healthy.
+
+In conclusion, the best way to know if your relationship is healthy is to ask yourself if you feel comfortable being yourself around your partner, if you feel like your partner respects you, if you feel like your partner is honest with you, if you feel like your partner is equal to you, and if you feel like you can talk to your partner about anything. If you can answer yes to all of those questions, then your relationship is probably healthy.</s>
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 739, 338, 4100, 304, 2274, 393, 727, 338, 694, 376, 650, 2159, 23994, 599, 29908, 1234, 304, 596, 1139, 29889, 7569, 9443, 338, 1422, 29892, 322, 727, 338, 694, 2323, 982, 304, 4529, 263, 376, 354, 4298, 29891, 29908, 9443, 29889, 13, 13, 7058, 1497, 29892, 727, 526, 777, 2498, 1410, 10652, 1475, 393, 366, 508, 671, 29889, 3118, 310, 278, 1556, 4100, 2712, 304, 6456, 338, 393, 263, 9045, 29891, 9443, 338, 2729, 373, 5478, 950, 3390, 29889, 512, 263, 9045, 29891, 9443, 29892, 366, 881, 4459, 25561, 1641, 7535, 29892, 322, 366, 881, 4459, 393, 596, 18096, 3390, 29879, 322, 1819, 366, 408, 263, 2022, 29889, 13, 13, 2744, 1228, 4100, 9565, 310, 263, 9045, 29891, 9443, 338, 4207, 14596, 29889, 512, 263, 9045, 29891, 9443, 29892, 366, 881, 4459, 25561, 1641, 1722, 322, 15993, 411, 596, 18096, 29889, 3575, 18096, 881, 4459, 278, 1021, 982, 7113, 366, 29889, 960, 366, 1284, 393, 366, 526, 19214, 304, 596, 18096, 470, 393, 596, 18096, 338, 19214, 304, 366, 29892, 393, 338, 263, 1804, 393, 278, 9443, 338, 451, 9045, 29891, 29889, 13, 13, 797, 6124, 29892, 17193, 338, 884, 385, 4100, 9565, 310, 263, 9045, 29891, 9443, 29889, 512, 263, 9045, 29891, 9443, 29892, 9561, 18096, 881, 4459, 393, 896, 526, 376, 9136, 1611, 29908, 304, 278, 916, 29892, 322, 9561, 881, 4459, 763, 896, 526, 376, 262, 571, 1611, 1642, 450, 9443, 881, 367, 5186, 297, 1432, 982, 29889, 13, 13, 12881, 635, 29892, 372, 338, 4100, 304, 6456, 393, 263, 9045, 29891, 9443, 4893, 664, 29889, 887, 9273, 29915, 29873, 2149, 263, 9045, 29891, 9443, 304, 367, 4922, 29889, 887, 674, 505, 6273, 322, 22941, 276, 4110, 925, 763, 738, 916, 7303, 29892, 541, 920, 366, 5376, 411, 1906, 22941, 276, 4110, 338, 825, 3732, 278, 9443, 9045, 29891, 29889, 13, 13, 797, 15997, 29892, 278, 1900, 982, 304, 1073, 565, 596, 9443, 338, 9045, 29891, 338, 304, 2244, 7535, 565, 366, 4459, 25561, 1641, 7535, 2820, 596, 18096, 29892, 565, 366, 4459, 763, 596, 18096, 3390, 29879, 366, 29892, 565, 366, 4459, 763, 596, 18096, 338, 15993, 411, 366, 29892, 565, 366, 4459, 763, 596, 18096, 338, 5186, 304, 366, 29892, 322, 565, 366, 4459, 763, 366, 508, 5193, 304, 596, 18096, 1048, 3099, 29889, 960, 366, 508, 1234, 4874, 304, 599, 310, 1906, 5155, 29892, 769, 596, 9443, 338, 3117, 9045, 29891, 29889, 2]
+labels:
+It is important to understand that there is no "one size fits all" answer to your question. Every relationship is different, and there is no single way to define a "healthy" relationship.
+
+That said, there are some general guidelines that you can use. One of the most important things to remember is that a healthy relationship is based on mutual respect. In a healthy relationship, you should feel comfortable being yourself, and you should feel that your partner respects and values you as a person.
+
+Another important aspect of a healthy relationship is honesty. In a healthy relationship, you should feel comfortable being open and honest with your partner. Your partner should feel the same way towards you. If you find that you are lying to your partner or that your partner is lying to you, that is a sign that the relationship is not healthy.
+
+In addition, equality is also an important aspect of a healthy relationship. In a healthy relationship, neither partner should feel that they are "superior" to the other, and neither should feel like they are "inferior". The relationship should be equal in every way.
+
+Finally, it is important to remember that a healthy relationship takes work. You shouldn't expect a healthy relationship to be perfect. You will have arguments and disagreements just like any other couple, but how you deal with those disagreements is what makes the relationship healthy.
+
+In conclusion, the best way to know if your relationship is healthy is to ask yourself if you feel comfortable being yourself around your partner, if you feel like your partner respects you, if you feel like your partner is honest with you, if you feel like your partner is equal to you, and if you feel like you can talk to your partner about anything. If you can answer yes to all of those questions, then your relationship is probably healthy.</s>
+[INFO|configuration_utils.py:697] 2025-04-14 13:31:32,523 >> loading configuration file /data/zli/workspace/zli_work/DSAA6000Q_ass3/model/Llama-2-7b-chat-hf/config.json
+[INFO|configuration_utils.py:771] 2025-04-14 13:31:32,524 >> Model config LlamaConfig {
+  "_name_or_path": "/data/zli/workspace/zli_work/DSAA6000Q_ass3/model/Llama-2-7b-chat-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.49.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+[INFO|modeling_utils.py:3979] 2025-04-14 13:31:32,581 >> loading weights file /data/zli/workspace/zli_work/DSAA6000Q_ass3/model/Llama-2-7b-chat-hf/model.safetensors.index.json
+[INFO|modeling_utils.py:4162] 2025-04-14 13:31:32,581 >> Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+[2025-04-14 13:31:32,581] [INFO] [config.py:734:__init__] Config mesh_device None world_size = 2
+[INFO|configuration_utils.py:1140] 2025-04-14 13:31:32,592 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+[2025-04-14 13:31:32,614] [INFO] [config.py:734:__init__] Config mesh_device None world_size = 2
+[2025-04-14 13:31:33,025] [INFO] [partition_parameters.py:348:__exit__] finished initializing model - num_params = 291, num_elems = 6.74B
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.26it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.44s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.27s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:10<00:10, 10.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:14<00:00,  6.74s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:14<00:00,  7.32s/it]
+[INFO|modeling_utils.py:4970] 2025-04-14 13:31:47,687 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4978] 2025-04-14 13:31:47,687 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at /data/zli/workspace/zli_work/DSAA6000Q_ass3/model/Llama-2-7b-chat-hf.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1093] 2025-04-14 13:31:47,806 >> loading configuration file /data/zli/workspace/zli_work/DSAA6000Q_ass3/model/Llama-2-7b-chat-hf/generation_config.json
+[INFO|configuration_utils.py:1140] 2025-04-14 13:31:47,807 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+[INFO|2025-04-14 13:31:47] llamafactory.model.model_utils.checkpointing:143 >> Gradient checkpointing enabled.
+[INFO|2025-04-14 13:31:47] llamafactory.model.model_utils.attention:143 >> Using torch SDPA for faster training and inference.
+[INFO|2025-04-14 13:31:47] llamafactory.model.adapter:143 >> ZeRO3 / FSDP detected, remaining trainable params in float32.
+[INFO|2025-04-14 13:31:47] llamafactory.model.adapter:143 >> Fine-tuning method: Full
+[INFO|2025-04-14 13:31:47] llamafactory.model.loader:143 >> trainable params: 6,738,415,616 || all params: 6,738,415,616 || trainable%: 100.0000
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[INFO|trainer.py:746] 2025-04-14 13:31:47,823 >> Using auto half precision backend
+[2025-04-14 13:31:47,984] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed info: version=0.16.5, git-hash=unknown, git-branch=unknown
+[2025-04-14 13:31:47,984] [INFO] [config.py:734:__init__] Config mesh_device None world_size = 2
+[2025-04-14 13:31:47,990] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-14 13:31:47,991] [INFO] [logging.py:107:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-04-14 13:31:47,991] [INFO] [logging.py:107:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2025-04-14 13:31:48,000] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2025-04-14 13:31:48,000] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2025-04-14 13:31:48,000] [INFO] [logging.py:107:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2025-04-14 13:31:48,000] [INFO] [logging.py:107:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2025-04-14 13:31:48,144] [INFO] [utils.py:781:see_memory_usage] Stage 3 initialize beginning
+[2025-04-14 13:31:48,144] [INFO] [utils.py:782:see_memory_usage] MA 6.28 GB         Max_MA 6.89 GB         CA 6.87 GB         Max_CA 8 GB 
+[2025-04-14 13:31:48,144] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.72 GB, percent = 3.1%
+[2025-04-14 13:31:48,146] [INFO] [stage3.py:170:__init__] Reduce bucket size 16777216
+[2025-04-14 13:31:48,146] [INFO] [stage3.py:171:__init__] Prefetch bucket size 15099494
+[2025-04-14 13:31:48,289] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-04-14 13:31:48,290] [INFO] [utils.py:782:see_memory_usage] MA 6.28 GB         Max_MA 6.28 GB         CA 6.87 GB         Max_CA 7 GB 
+[2025-04-14 13:31:48,290] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.72 GB, percent = 3.1%
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2025-04-14 13:31:48,495] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-04-14 13:31:48,496] [INFO] [utils.py:782:see_memory_usage] MA 6.28 GB         Max_MA 6.28 GB         CA 6.87 GB         Max_CA 7 GB 
+[2025-04-14 13:31:48,496] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.73 GB, percent = 3.1%
+[2025-04-14 13:31:48,648] [INFO] [utils.py:781:see_memory_usage] Before creating fp16 partitions
+[2025-04-14 13:31:48,649] [INFO] [utils.py:782:see_memory_usage] MA 6.28 GB         Max_MA 6.28 GB         CA 6.87 GB         Max_CA 7 GB 
+[2025-04-14 13:31:48,649] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.73 GB, percent = 3.1%
+[2025-04-14 13:31:52,900] [INFO] [utils.py:781:see_memory_usage] After creating fp16 partitions: 5
+[2025-04-14 13:31:52,901] [INFO] [utils.py:782:see_memory_usage] MA 6.28 GB         Max_MA 6.28 GB         CA 6.28 GB         Max_CA 7 GB 
+[2025-04-14 13:31:52,901] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 18.42 GB, percent = 3.7%
+[2025-04-14 13:31:53,065] [INFO] [utils.py:781:see_memory_usage] Before creating fp32 partitions
+[2025-04-14 13:31:53,065] [INFO] [utils.py:782:see_memory_usage] MA 6.28 GB         Max_MA 6.28 GB         CA 6.28 GB         Max_CA 6 GB 
+[2025-04-14 13:31:53,065] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.72 GB, percent = 3.1%
+[2025-04-14 13:31:53,219] [INFO] [utils.py:781:see_memory_usage] After creating fp32 partitions
+[2025-04-14 13:31:53,219] [INFO] [utils.py:782:see_memory_usage] MA 18.83 GB         Max_MA 19.5 GB         CA 21.22 GB         Max_CA 21 GB 
+[2025-04-14 13:31:53,219] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.72 GB, percent = 3.1%
+[2025-04-14 13:31:53,368] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2025-04-14 13:31:53,368] [INFO] [utils.py:782:see_memory_usage] MA 18.83 GB         Max_MA 18.83 GB         CA 21.22 GB         Max_CA 21 GB 
+[2025-04-14 13:31:53,368] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.72 GB, percent = 3.1%
+[2025-04-14 13:31:53,518] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2025-04-14 13:31:53,518] [INFO] [utils.py:782:see_memory_usage] MA 18.83 GB         Max_MA 22.57 GB         CA 24.96 GB         Max_CA 25 GB 
+[2025-04-14 13:31:53,518] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.72 GB, percent = 3.1%
+[2025-04-14 13:31:53,519] [INFO] [stage3.py:534:_setup_for_real_optimizer] optimizer state initialized
+[2025-04-14 13:31:53,749] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2025-04-14 13:31:53,749] [INFO] [utils.py:782:see_memory_usage] MA 25.13 GB         Max_MA 25.62 GB         CA 31.24 GB         Max_CA 31 GB 
+[2025-04-14 13:31:53,750] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 15.72 GB, percent = 3.1%
+[2025-04-14 13:31:53,750] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer_Stage3
+[2025-04-14 13:31:53,750] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = None
+[2025-04-14 13:31:53,750] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2025-04-14 13:31:53,750] [INFO] [logging.py:107:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0, 0.0], mom=[(0.9, 0.999), (0.9, 0.999)]
+[2025-04-14 13:31:53,751] [INFO] [config.py:1000:print] DeepSpeedEngine configuration:
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'intra_op_parallelism': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   amp_enabled .................. False
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   amp_params ................... False
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   bfloat16_enabled ............. True
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   bfloat16_immediate_grad_update  True
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   checkpoint_tag_validation_enabled  True
+[2025-04-14 13:31:53,751] [INFO] [config.py:1004:print]   checkpoint_tag_validation_fail  False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f152b031c60>
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   communication_data_type ...... None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   curriculum_enabled_legacy .... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   curriculum_params_legacy ..... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'pin_memory': False, 'curriculum_learning': {'enabled': False}, 'dynamic_batching': {'enabled': False, 'lr_scaling_method': 'linear', 'min_batch_size': 1, 'max_batch_size': None, 'sequence_picking_order': 'dataloader', 'verbose': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   data_efficiency_enabled ...... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   dataloader_drop_last ......... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   disable_allgather ............ False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   dump_state ................... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   dynamic_loss_scale_args ...... None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_enabled ........... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_layer_num ......... 0
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_max_iter .......... 100
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_stability ......... 1e-06
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_tol ............... 0.01
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   eigenvalue_verbose ........... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   elasticity_enabled ........... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   fp16_auto_cast ............... None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   fp16_enabled ................. False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   fp16_master_weights_and_gradients  False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   global_rank .................. 0
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   grad_accum_dtype ............. None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   gradient_accumulation_steps .. 4
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   gradient_clipping ............ 1.0
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   gradient_predivide_factor .... 1.0
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   graph_harvesting ............. False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   initial_dynamic_scale ........ 1
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   load_universal_checkpoint .... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   loss_scale ................... 1.0
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   memory_breakdown ............. False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   mics_hierarchial_params_gather  False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   mics_shard_size .............. -1
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   optimizer_legacy_fusion ...... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   optimizer_name ............... None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   optimizer_params ............. None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   pld_enabled .................. False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   pld_params ................... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   prescale_gradients ........... False
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   scheduler_name ............... None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   scheduler_params ............. None
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   seq_parallel_communication_data_type  torch.float32
+[2025-04-14 13:31:53,752] [INFO] [config.py:1004:print]   sparse_attention ............. None
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   sparse_gradients_enabled ..... False
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   steps_per_print .............. inf
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   tensor_parallel_config ....... dtype=torch.float16 autotp_size=0 tensor_parallel=TPConfig(tp_size=1, tp_grain_size=1, mpu=None, tp_group=None) injection_policy_tuple=None keep_module_on_host=False replace_with_kernel_inject=False
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   timers_config ................ enabled=True synchronized=True
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   train_batch_size ............. 16
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   train_micro_batch_size_per_gpu  2
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   use_data_before_expert_parallel_  False
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   use_node_local_storage ....... False
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   wall_clock_breakdown ......... False
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   weight_quantization_config ... None
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   world_size ................... 2
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   zero_allow_untested_optimizer  True
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=16777216 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=15099494 param_persistence_threshold=40960 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True module_granularity_threshold=0 use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False zeropp_loco_param=None mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True log_trace_cache_warnings=False
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   zero_enabled ................. True
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-14 13:31:53,753] [INFO] [config.py:1004:print]   zero_optimization_stage ...... 3
+[2025-04-14 13:31:53,753] [INFO] [config.py:990:print_user_config]   json = {
+    "train_batch_size": 16, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "gradient_accumulation_steps": 4, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "loss_scale_window": 1000, 
+        "initial_scale_power": 16, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "overlap_comm": false, 
+        "contiguous_gradients": true, 
+        "sub_group_size": 1.000000e+09, 
+        "reduce_bucket_size": 1.677722e+07, 
+        "stage3_prefetch_bucket_size": 1.509949e+07, 
+        "stage3_param_persistence_threshold": 4.096000e+04, 
+        "stage3_max_live_parameters": 1.000000e+09, 
+        "stage3_max_reuse_distance": 1.000000e+09, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "steps_per_print": inf
+}
+[INFO|trainer.py:2405] 2025-04-14 13:31:53,754 >> ***** Running training *****
+[INFO|trainer.py:2406] 2025-04-14 13:31:53,754 >>   Num examples = 149
+[INFO|trainer.py:2407] 2025-04-14 13:31:53,754 >>   Num Epochs = 3
+[INFO|trainer.py:2408] 2025-04-14 13:31:53,754 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2411] 2025-04-14 13:31:53,754 >>   Total train batch size (w. parallel, distributed & accumulation) = 16
+[INFO|trainer.py:2412] 2025-04-14 13:31:53,754 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:2413] 2025-04-14 13:31:53,754 >>   Total optimization steps = 27
+[INFO|trainer.py:2414] 2025-04-14 13:31:53,755 >>   Number of trainable parameters = 6,738,415,616
+  0%|          | 0/27 [00:00<?, ?it/s]  4%|▎         | 1/27 [00:07<03:17,  7.60s/it]  7%|▋         | 2/27 [00:12<02:26,  5.85s/it] 11%|█         | 3/27 [00:17<02:08,  5.36s/it] 15%|█▍        | 4/27 [00:23<02:11,  5.72s/it] 19%|█▊        | 5/27 [00:29<02:08,  5.82s/it] 22%|██▏       | 6/27 [00:34<01:57,  5.62s/it] 26%|██▌       | 7/27 [00:40<01:52,  5.61s/it] 30%|██▉       | 8/27 [00:46<01:49,  5.77s/it] 33%|███▎      | 9/27 [00:51<01:42,  5.71s/it] 37%|███▋      | 10/27 [00:58<01:40,  5.93s/it]                                               {'loss': 2.0769, 'grad_norm': 6.373821870796072, 'learning_rate': 8.043807145043604e-06, 'epoch': 1.11}
+ 37%|███▋      | 10/27 [00:58<01:40,  5.93s/it] 41%|████      | 11/27 [01:03<01:30,  5.64s/it] 44%|████▍     | 12/27 [01:09<01:29,  5.95s/it] 48%|████▊     | 13/27 [01:15<01:22,  5.88s/it] 52%|█████▏    | 14/27 [01:21<01:15,  5.82s/it] 56%|█████▌    | 15/27 [01:27<01:12,  6.02s/it] 59%|█████▉    | 16/27 [01:33<01:05,  5.93s/it] 63%|██████▎   | 17/27 [01:38<00:57,  5.76s/it] 67%|██████▋   | 18/27 [01:44<00:50,  5.60s/it] 70%|███████   | 19/27 [01:51<00:49,  6.18s/it] 74%|███████▍  | 20/27 [01:57<00:42,  6.02s/it]                                               {'loss': 1.5903, 'grad_norm': 2.1648889692579605, 'learning_rate': 1.956192854956397e-06, 'epoch': 2.21}
+ 74%|███████▍  | 20/27 [01:57<00:42,  6.02s/it] 78%|███████▊  | 21/27 [02:02<00:35,  5.92s/it] 81%|████████▏ | 22/27 [02:08<00:28,  5.76s/it] 85%|████████▌ | 23/27 [02:13<00:21,  5.47s/it] 89%|████████▉ | 24/27 [02:17<00:15,  5.21s/it] 93%|█████████▎| 25/27 [02:24<00:11,  5.80s/it] 96%|█████████▋| 26/27 [02:30<00:05,  5.61s/it]100%|██████████| 27/27 [02:35<00:00,  5.67s/it][INFO|trainer.py:3942] 2025-04-14 13:34:36,586 >> Saving model checkpoint to saves/llama2-7b/full/sft-curated-data/checkpoint-27
+[INFO|configuration_utils.py:423] 2025-04-14 13:34:36,590 >> Configuration saved in saves/llama2-7b/full/sft-curated-data/checkpoint-27/config.json
+[INFO|configuration_utils.py:909] 2025-04-14 13:34:36,591 >> Configuration saved in saves/llama2-7b/full/sft-curated-data/checkpoint-27/generation_config.json
+[INFO|modeling_utils.py:3048] 2025-04-14 13:34:49,128 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 3 checkpoint shards. You can find where each parameters has been saved in the index located at saves/llama2-7b/full/sft-curated-data/checkpoint-27/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2500] 2025-04-14 13:34:49,129 >> tokenizer config file saved in saves/llama2-7b/full/sft-curated-data/checkpoint-27/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2509] 2025-04-14 13:34:49,129 >> Special tokens file saved in saves/llama2-7b/full/sft-curated-data/checkpoint-27/special_tokens_map.json
+[2025-04-14 13:34:49,448] [INFO] [logging.py:107:log_dist] [Rank 0] [Torch] Checkpoint global_step27 is about to be saved!
+[2025-04-14 13:34:49,455] [INFO] [logging.py:107:log_dist] [Rank 0] Saving model checkpoint: saves/llama2-7b/full/sft-curated-data/checkpoint-27/global_step27/zero_pp_rank_0_mp_rank_00_model_states.pt
+[2025-04-14 13:34:49,455] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving saves/llama2-7b/full/sft-curated-data/checkpoint-27/global_step27/zero_pp_rank_0_mp_rank_00_model_states.pt...
+[2025-04-14 13:34:49,466] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved saves/llama2-7b/full/sft-curated-data/checkpoint-27/global_step27/zero_pp_rank_0_mp_rank_00_model_states.pt.
+[2025-04-14 13:34:49,467] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving saves/llama2-7b/full/sft-curated-data/checkpoint-27/global_step27/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2025-04-14 13:35:46,670] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved saves/llama2-7b/full/sft-curated-data/checkpoint-27/global_step27/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2025-04-14 13:35:46,670] [INFO] [engine.py:3672:_save_zero_checkpoint] zero checkpoint saved saves/llama2-7b/full/sft-curated-data/checkpoint-27/global_step27/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2025-04-14 13:35:46,675] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step27 is ready now!
+[INFO|trainer.py:2657] 2025-04-14 13:35:46,677 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               {'train_runtime': 232.9217, 'train_samples_per_second': 1.919, 'train_steps_per_second': 0.116, 'train_loss': 1.6699757752595124, 'epoch': 2.95}
+100%|██████████| 27/27 [03:52<00:00,  5.67s/it]100%|██████████| 27/27 [03:52<00:00,  8.63s/it]
+[INFO|trainer.py:3942] 2025-04-14 13:35:53,560 >> Saving model checkpoint to saves/llama2-7b/full/sft-curated-data
+[INFO|configuration_utils.py:423] 2025-04-14 13:35:53,562 >> Configuration saved in saves/llama2-7b/full/sft-curated-data/config.json
+[INFO|configuration_utils.py:909] 2025-04-14 13:35:53,563 >> Configuration saved in saves/llama2-7b/full/sft-curated-data/generation_config.json
+[INFO|modeling_utils.py:3048] 2025-04-14 13:36:07,443 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 3 checkpoint shards. You can find where each parameters has been saved in the index located at saves/llama2-7b/full/sft-curated-data/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2500] 2025-04-14 13:36:07,444 >> tokenizer config file saved in saves/llama2-7b/full/sft-curated-data/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2509] 2025-04-14 13:36:07,444 >> Special tokens file saved in saves/llama2-7b/full/sft-curated-data/special_tokens_map.json
+***** train metrics *****
+  epoch                    =     2.9474
+  total_flos               =      609GF
+  train_loss               =       1.67
+  train_runtime            = 0:03:52.92
+  train_samples_per_second =      1.919
+  train_steps_per_second   =      0.116
+Figure saved at: saves/llama2-7b/full/sft-curated-data/training_loss.png
+[WARNING|2025-04-14 13:36:07] llamafactory.extras.ploting:148 >> No metric eval_loss to plot.
+[WARNING|2025-04-14 13:36:07] llamafactory.extras.ploting:148 >> No metric eval_accuracy to plot.
+[INFO|modelcard.py:449] 2025-04-14 13:36:07,861 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}}

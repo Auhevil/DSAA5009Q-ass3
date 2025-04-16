@@ -1,0 +1,45 @@
+INFO 04-13 18:00:50 __init__.py:190] Automatically detected platform cuda.
+[INFO|2025-04-13 18:00:52] llamafactory.cli:143 >> Initializing 1 distributed tasks at: 127.0.0.1:20630
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py", line 23, in <module>
+[rank0]:     launch()
+[rank0]:   File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py", line 19, in launch
+[rank0]:     run_exp()
+[rank0]:   File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/train/tuner.py", line 103, in run_exp
+[rank0]:     _training_function(config={"args": args, "callbacks": callbacks})
+[rank0]:   File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/train/tuner.py", line 54, in _training_function
+[rank0]:     model_args, data_args, training_args, finetuning_args, generating_args = get_train_args(args)
+[rank0]:   File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/parser.py", line 236, in get_train_args
+[rank0]:     raise ValueError("Please specify dataset for training.")
+[rank0]: ValueError: Please specify dataset for training.
+[rank0]:[W413 18:00:59.639544935 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+E0413 18:01:00.174000 4087265 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 4087347) of binary: /home/zehuali/miniconda3/envs/llama_factory/bin/python3.10
+Traceback (most recent call last):
+  File "/home/zehuali/miniconda3/envs/llama_factory/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-04-13_18:01:00
+  host      : bldserver
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 4087347)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

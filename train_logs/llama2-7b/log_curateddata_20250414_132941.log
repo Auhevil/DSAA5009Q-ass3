@@ -1,0 +1,99 @@
+INFO 04-14 13:29:47 __init__.py:190] Automatically detected platform cuda.
+[INFO|2025-04-14 13:29:48] llamafactory.cli:143 >> Initializing 2 distributed tasks at: 127.0.0.1:23538
+W0414 13:29:50.222000 141724 site-packages/torch/distributed/run.py:793] 
+W0414 13:29:50.222000 141724 site-packages/torch/distributed/run.py:793] *****************************************
+W0414 13:29:50.222000 141724 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0414 13:29:50.222000 141724 site-packages/torch/distributed/run.py:793] *****************************************
+Traceback (most recent call last):
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py", line 23, in <module>
+    launch()
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py", line 19, in launch
+    run_exp()
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/train/tuner.py", line 103, in run_exp
+    _training_function(config={"args": args, "callbacks": callbacks})
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/train/tuner.py", line 54, in _training_function
+    model_args, data_args, training_args, finetuning_args, generating_args = get_train_args(args)
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/parser.py", line 190, in get_train_args
+    model_args, data_args, training_args, finetuning_args, generating_args = _parse_train_args(args)
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/parser.py", line 168, in _parse_train_args
+    return _parse_args(parser, args, allow_extra_keys=allow_extra_keys)
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/parser.py", line 75, in _parse_args
+    return parser.parse_dict(args, allow_extra_keys=allow_extra_keys)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/hf_argparser.py", line 392, in parse_dict
+    obj = dtype(**inputs)
+  File "<string>", line 144, in __init__
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/training_args.py", line 61, in __post_init__
+    Seq2SeqTrainingArguments.__post_init__(self)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/training_args.py", line 1791, in __post_init__
+    self.device
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/training_args.py", line 2313, in device
+    return self._setup_devices
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/utils/generic.py", line 62, in __get__
+    cached = self.fget(obj)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/training_args.py", line 2243, in _setup_devices
+    self.distributed_state = PartialState(**accelerator_state_kwargs)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/accelerate/state.py", line 199, in __init__
+    raise ImportError(
+ImportError: DeepSpeed is not available => install it using `pip3 install deepspeed` or build it from source
+Traceback (most recent call last):
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py", line 23, in <module>
+    launch()
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py", line 19, in launch
+    run_exp()
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/train/tuner.py", line 103, in run_exp
+    _training_function(config={"args": args, "callbacks": callbacks})
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/train/tuner.py", line 54, in _training_function
+    model_args, data_args, training_args, finetuning_args, generating_args = get_train_args(args)
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/parser.py", line 190, in get_train_args
+    model_args, data_args, training_args, finetuning_args, generating_args = _parse_train_args(args)
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/parser.py", line 168, in _parse_train_args
+    return _parse_args(parser, args, allow_extra_keys=allow_extra_keys)
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/parser.py", line 75, in _parse_args
+    return parser.parse_dict(args, allow_extra_keys=allow_extra_keys)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/hf_argparser.py", line 392, in parse_dict
+    obj = dtype(**inputs)
+  File "<string>", line 144, in __init__
+  File "/data/zli/workspace/LLaMA-Factory/src/llamafactory/hparams/training_args.py", line 61, in __post_init__
+    Seq2SeqTrainingArguments.__post_init__(self)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/training_args.py", line 1791, in __post_init__
+    self.device
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/training_args.py", line 2313, in device
+    return self._setup_devices
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/utils/generic.py", line 62, in __get__
+    cached = self.fget(obj)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/training_args.py", line 2243, in _setup_devices
+    self.distributed_state = PartialState(**accelerator_state_kwargs)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/accelerate/state.py", line 199, in __init__
+    raise ImportError(
+ImportError: DeepSpeed is not available => install it using `pip3 install deepspeed` or build it from source
+W0414 13:29:55.556000 141724 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 141794 closing signal SIGTERM
+E0414 13:29:55.621000 141724 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 141793) of binary: /home/zehuali/miniconda3/envs/llama_factory/bin/python3.10
+Traceback (most recent call last):
+  File "/home/zehuali/miniconda3/envs/llama_factory/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/zehuali/miniconda3/envs/llama_factory/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/zli/workspace/LLaMA-Factory/src/llamafactory/launcher.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-04-14_13:29:55
+  host      : bldserver
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 141793)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
